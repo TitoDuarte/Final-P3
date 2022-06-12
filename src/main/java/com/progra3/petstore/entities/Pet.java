@@ -28,7 +28,7 @@ public class Pet {
 	private double price;
 	@Column(name = "birth_day")
 	@Temporal(TemporalType.DATE)
-	@NotEmpty(message = "fecha no puede estar vacia ")
+	@NotNull(message = "fecha no puede estar vacia ")
 	private Date birthDay;
 	public Long getId() {
 		return id;
