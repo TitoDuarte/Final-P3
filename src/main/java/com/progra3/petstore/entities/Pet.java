@@ -10,18 +10,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "mascotas")
 public class Pet {
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotEmpty(message = "El nombre no tiene que estar vacio")
 	private String name;
+
+	@NotNull(message = "precio no puede estar vacio")
 	private double price;
 	@Column(name = "birth_day")
 	@Temporal(TemporalType.DATE)
+	@NotEmpty(message = "fecha no puede estar vacia ")
 	private Date birthDay;
 	public Long getId() {
 		return id;
